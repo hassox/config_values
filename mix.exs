@@ -17,6 +17,7 @@ defmodule ConfigValues.Mixfile do
      start_permanent: Mix.env == :prod,
      maintainers: @maintainers,
      homepage_url: @url,
+     package: package,
      docs: docs,
      deps: deps]
   end
@@ -43,7 +44,10 @@ defmodule ConfigValues.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+     {:ex_doc, "~> 0.10", only: :dev},
+     {:earmark, ">= 0.0.0", only: :dev},
+    ]
   end
 
   defp package do

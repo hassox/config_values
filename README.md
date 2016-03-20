@@ -34,7 +34,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   1. Add config_values to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:config_values, "~> 0.0.1"}]
+          [{:config_values, "~> 1.0.0"}]
         end
 
   2. Ensure config_values is started before your application:
