@@ -19,7 +19,8 @@ config values. The following are replaced with their values:
 ```elixir
 
 # Assume that there is a system variable in "VARIABLE_NAME" of "BOB"
-my_config = Application.get_env(:my_app, SomeModule)
+my_config = Application.get_env(:my_app, SomeModule) |> ConfigValues.config_value
+
 
 [
   some_value: "BOB",
