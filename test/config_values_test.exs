@@ -86,4 +86,12 @@ defmodule ConfigValuesTest do
 
     assert config_value(given) == expected
   end
+
+  test "mandatory var missing" do
+    assert_raise(
+      ConfigValues.MissingEnvironmentVar,
+      ~r/Expected environment variable 'NON_EXISTENT'/i,
+      fn -> config_value({:system!, "NON_EXISTENT"}) end
+    )
+  end
 end

@@ -15,6 +15,9 @@ config values. The following are replaced with their values:
 
 * `{:system, "VARIABLE_NAME"}` - replaces with a call to `System.get_env("VARIABLE_NAME")`
 
+In case a variable is mandatory and you want to raise an exception when it is missing, you can use
+* `{:system!, "MANDATORY_VARIABLE_NAME"}`
+
 
 ```elixir
 
