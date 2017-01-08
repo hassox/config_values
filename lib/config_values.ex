@@ -1,4 +1,5 @@
 defmodule ConfigValues do
+  defmodule MissingEnvironmentVar, do: defexception message: ""
 
   @doc ~S"""
   Parses the given value replacing system variables
@@ -22,6 +23,9 @@ defmodule ConfigValues do
 
   def config_value([]), do: []
   def config_value({:system, variable_name}), do: System.get_env(variable_name)
+  def config_value({:system!, var}) do
+    config_value({:system, var}) || raise(MissingEnvironmentVar, "Expected environment variable '#{var}'")
+  end
   def config_value({key, value}), do: {key, config_value(value)}
   def config_value(value), do: value
 end
